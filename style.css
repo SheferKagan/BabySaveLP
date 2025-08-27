@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Share+Tech+Mono&display=swap');
+
+:root {
+    --primary-bg-color: #0d1a26; /* Dark blue/grey, almost black */
+    --secondary-bg-color: #172a3a; /* Slightly lighter dark blue */
+    --accent-color-1: #00bcd4; /* Cyan - high-tech feel */
+    --accent-color-2: #ff4081; /* Pinkish red - for alerts/CTAs */
+    --text-color-light: #e0f2f7; /* Light grey/blue for main text */
+    --text-color-faded: #a7b7c2; /* Faded text for less important info */
+    --header-footer-bg: rgba(0, 0, 0, 0.3); /* Slightly transparent for depth */
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Modern, clean font */
+    margin: 0;
+    padding: 0;
+    direction: ltr; /* English LTR */
+    text-align: left; /* English left align */
+    background-color: var(--primary-bg-color);
+    color: var(--text-color-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.header {
+    background-color: var(--header-footer-bg);
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0, 188, 212, 0.2); /* Subtle accent line */
+}
+
+.logo {
+    font-family: 'Share Tech Mono', monospace; /* Techy, monospaced font for logo */
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: var(--accent-color-1);
+    letter-spacing: 2px;
+}
+
+.nav a {
+    color: var(--text-color-light);
+    text-decoration: none;
+    margin-left: 2rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav a:hover {
+    color: var(--accent-color-1);
+    transform: translateY(-2px);
+}
+
+.nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color-1);
+    transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+
+.hero {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--primary-bg-color) 0%, var(--secondary-bg-color) 100%);
+    background-size: 400% 400%;
+    animation: gradient-shift 18s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero-content {
+    max-width: 900px;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-content h1 {
+    font-size: 3.8rem;
+    margin: 0 0 1rem;
+    line-height: 1.1;
+    color: var(--accent-color-1);
+    animation: fadeInDown 1s ease-out;
+    text-shadow: 0 0 10px rgba(0, 188, 212, 0.4);
+}
+
+.hero-content p {
+    font-size: 1.4rem;
+    margin: 1rem 0 2.5rem;
+    color: var(--text-color-light);
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.cta-button {
+    background-color: var(--accent-color-2);
+    color: white;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    animation: pulse 2s infinite; /* Changed to pulse for a high-tech beat */
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255, 64, 129, 0.4);
+}
+
+.cta-button:hover {
+    background-color: #d82c6d;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 0 20px rgba(255, 64, 129, 0.7);
+}
+
+/* Sections Styling */
+section {
+    padding: 6rem 3rem;
+    text-align: center;
+    border-top: 1px solid rgba(0, 188, 212, 0.1);
+}
+
+h2 {
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    color: var(--accent-color-1);
+    font-family: 'Share Tech Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.features-section, .scenarios-section {
+    background-color: var(--secondary-bg-color);
+}
+
+.features-grid, .scenarios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-item, .scenario-item {
+    background-color: var(--primary-bg-color);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    text-align: center;
+    border: 1px solid rgba(0, 188, 212, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-item::before, .scenario-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(0, 188, 212, 0.1), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.feature-item:hover::before, .scenario-item:hover::before {
+    opacity: 1;
+}
+
+.feature-item:hover, .scenario-item:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.feature-item p, .scenario-item p {
+    font-size: 1.15rem;
+    color: var(--text-color-faded);
+}
+
+.scenario-item h3 {
+    font-size: 1.7rem;
+    color: var(--accent-color-1);
+    margin-bottom: 0.8rem;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+/* Contact Section Styling */
+.contact-section {
+    background-color: var(--primary-bg-color);
+    padding-bottom: 8rem; /* More space before footer */
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 550px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 1.2rem;
+    border: 1px solid rgba(0, 188, 212, 0.3);
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--secondary-bg-color);
+    color: var(--text-color-light);
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color-1);
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+}
+
+.contact-form input::placeholder, .contact-form textarea::placeholder {
+    color: var(--text-color-faded);
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 64, 129, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(255, 64, 129, 0.7); }
+    100% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 64, 129, 0.4); }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer {
+    background-color: var(--header-footer-bg);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: auto;
+    font-size: 0.9rem;
+    color: var(--text-color-faded);
+    border-top: 1px solid rgba(0, 188, 212, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .nav {
+        margin-top: 1rem;
+    }
+    .nav a {
+        margin: 0 0.8rem;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    .cta-button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    section {
+        padding: 4rem 1.5rem;
+    }
+    .features-grid, .scenarios-grid {
+        grid-template-columns: 1fr;
+    }
+}
